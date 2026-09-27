@@ -6,7 +6,6 @@ import {
   Circle,
   Calendar,
   Sparkles,
-  TrendingUp,
   Clock,
   Search,
   Users,

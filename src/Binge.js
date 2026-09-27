@@ -29,7 +29,6 @@ import "./binge.css";
 
 const TMDB_KEY = "1cc521499397d3f05045034cd080066b";
 const TMDB_BASE = "https://api.themoviedb.org/3";
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 const TMDB_IMG = "https://image.tmdb.org/t/p/w400";
 const FALLBACK = "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80";
 
@@ -155,7 +154,7 @@ export default function App() {
     const token = localStorage.getItem("bingetrack_token");
     if (!token) return;
 
-    const response = await fetch(`${API_URL}/api/me/shows`, {
+    const response = await fetch("/.netlify/functions/shows", {
       method: "PUT",
       headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
       body: JSON.stringify({ shows: nextShows }),
@@ -172,7 +171,7 @@ export default function App() {
     const token = localStorage.getItem("bingetrack_token");
     if (!token || !isAuthenticated) return;
 
-    fetch(`${API_URL}/api/me/shows`, { headers: { Authorization: `Bearer ${token}` } })
+    fetch("/.netlify/functions/shows", { headers: { Authorization: `Bearer ${token}` } })
       .then((response) => {
         if (!response.ok) throw new Error("Failed to load your watchlist");
         return response.json();

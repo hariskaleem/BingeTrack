@@ -4,7 +4,6 @@ import { Mail, ArrowRight, Loader2 } from "lucide-react";
 import AuthLayout, { Field, PasswordField } from "./AuthLayout";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -33,7 +32,7 @@ export default function Login() {
     if (!validate()) return;
     setLoading(true);
     try {
-      const res = await fetch(`${API_URL}/api/auth/login`, {
+      const res = await fetch("/.netlify/functions/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: form.email, password: form.password }),

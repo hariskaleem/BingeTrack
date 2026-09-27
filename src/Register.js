@@ -5,7 +5,6 @@ import AuthLayout, { Field, PasswordField } from "./AuthLayout";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const STRENGTH_LABELS = ["Too weak", "Weak", "Fair", "Good", "Strong"];
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
 function getStrength(pw) {
   if (!pw) return 0;
@@ -49,7 +48,7 @@ export default function Register() {
     if (!validate()) return;
     setLoading(true);
     try {
-      const res = await fetch(`${API_URL}/api/auth/register`, {
+      const res = await fetch("/.netlify/functions/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username: form.username, email: form.email, password: form.password }),

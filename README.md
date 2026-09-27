@@ -1,5 +1,16 @@
 # Getting Started with Create React App
 
+## Netlify deployment
+
+The frontend and API deploy together. Netlify reads functions from `netlify/functions` and serves them at `/.netlify/functions/login`, `/.netlify/functions/register`, and `/.netlify/functions/shows`.
+
+Set these environment variables in the Netlify site settings before deploying:
+
+- `MONGO_URI`: MongoDB Atlas connection string
+- `JWT_SECRET`: secret used to sign authentication tokens
+
+The build settings are already defined in `netlify.toml`. For local frontend development with the serverless endpoints, use Netlify CLI with `netlify dev`.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

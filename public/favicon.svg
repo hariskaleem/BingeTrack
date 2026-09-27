@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>BingeTrack</title>
+  <defs>
+    <linearGradient id="brand" x1="8" y1="56" x2="56" y2="8" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7c3aed" />
+      <stop offset="1" stop-color="#06b6d4" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#brand)" />
+  <rect x="13" y="17" width="38" height="28" rx="4" fill="none" stroke="#fff" stroke-width="4" />
+  <path d="m22 52 10-7 10 7" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" />
+  <circle cx="53" cy="11" r="6" fill="#22d3ee" />
+</svg>
